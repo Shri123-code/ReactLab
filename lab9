@@ -1,0 +1,125 @@
+// App.jsx
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+
+import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
+
+function App() {
+const LinkStyle=({isAcive})=>({
+margin:'0 10px',
+text-decoration:'none',
+color:isActive?'blue':'black',
+fontweight:isActive?'bold':'normal'
+});
+  return (
+    <div>
+      <nav style={{
+         display:'flex',
+         justifyContent:'center'
+          gap:'20px'
+       }}>
+        <NavLink to="/">Home</Link> |{" "}
+        <NavLink to="/about">About</Link> |{" "}
+        <NavLink to="/contact">Contact</Link>
+      </nav>
+      <hr/>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+
+// Home.jsx
+import React from "react";
+
+function Home() {
+  const style = {
+    backgroundColor: "#4CAF50",
+    color: "white",
+    padding: "40px",
+    textAlign: "center",
+    margin: "30px",
+    borderRadius: "10px",
+  };
+
+  return (
+    <div style={style}>
+      <h2>Home Page</h2>
+      <p>Welcome to the Home Page</p>
+    </div>
+  );
+}
+
+export default Home;
+
+
+// About.jsx
+import React from "react";
+
+function About() {
+  const style = {
+    backgroundColor: "#2196F3",
+    color: "white",
+    padding: "40px",
+    textAlign: "center",
+    margin: "30px",
+    borderRadius: "10px",
+  };
+
+  return (
+    <div style={style}>
+      <h2>About Page</h2>
+      <p>This is the About Page</p>
+    </div>
+  );
+}
+
+export default About;
+
+
+// Contact.jsx
+import React from "react";
+
+function Contact() {
+  const style = {
+    backgroundColor: "#FF5722",
+    color: "white",
+    padding: "40px",
+    textAlign: "center",
+    margin: "30px",
+    borderRadius: "10px",
+  };
+
+  return (
+    <div style={style}>
+      <h2>Contact Page</h2>
+      <p>This is the Contact Page</p>
+    </div>
+  );
+}
+
+export default Contact;
+
+
+// Main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App.js";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
